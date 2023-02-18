@@ -1,26 +1,49 @@
-<template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+<template class="h-screen">
+  <div>
+    <Navbar />
+    <router-view />
+  </div>
+
+  <!-- <nav v-if="isLoggedIn">
+    <router-link to="/market"> MarketAnalysis</router-link>
+    <router-link to="/expense"> ExpenseTracking</router-link>
+    <router-link to="/addcrop"> AddYourCrop</router-link>
+    <button @click="handleSignOut" v-if="isLoggedIn">Logout</button>
+  </nav> -->
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+<script setup>
+import Navbar from "./components/Navbar.vue";
+// import { onMounted, ref } from "vue";
+// import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+// import { useRouter } from "vue-router";
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+// const router = useRouter();
+// const isLoggedIn = ref(false);
+
+// let auth;
+
+// onMounted(() => {
+//   auth = getAuth();
+//   onAuthStateChanged(auth, (user) => {
+//     if (user) {
+//       isLoggedIn.value = true;
+//     } else {
+//       isLoggedIn.value = false;
+//     }
+//   });
+// });
+
+// const handleSignOut = () => {
+//   signOut(auth).then(() => {
+//     router.push("/");
+//   });
+// };
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+body {
+  margin: 0;
+  background: #ffffff;
 }
 </style>
