@@ -3,7 +3,8 @@
     <div class="flex w-8/12 items-center">
       <div class="relative flex py-5 items-center w-full justify-center">
         <div class="text-2xl my-10 font-medium text-center">
-          <p class="underline decoration-[rgb(37,99,235)]">Market analysis</p>
+          <h1>{{ message }}</h1>
+          <button v-on:click="click()">Click me</button>
         </div>
         <!-- <div class="flex-grow border-t border-gray-400"></div>
         <div class="flex-grow border-t border-gray-400"></div> -->
@@ -79,6 +80,7 @@ export default {
       selectedCrop: "",
       chartData: {},
       options: [],
+      message: "Market Analysis",
       // chartData: [],
     };
   },
@@ -86,6 +88,13 @@ export default {
     this.getCrops();
   },
   methods: {
+    click() {
+      if (this.message == "Market Analysis") {
+        this.message = "Market";
+      } else {
+        this.message = "Market Analysis";
+      }
+    },
     async getCrops() {
       const querySnap = await getDocs(query(collection(db, "crops")));
       querySnap.forEach((doc) => this.crops.push(doc.data()));
