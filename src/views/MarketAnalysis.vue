@@ -3,8 +3,8 @@
     <div class="flex w-8/12 items-center">
       <div class="relative flex py-5 items-center w-full justify-center">
         <div class="text-2xl my-10 font-medium text-center">
-          <h1>{{ message }}</h1>
-          <button v-on:click="click()">Click me</button>
+          <h1>Market Analysis</h1>
+          <!-- <button v-on:click="click()">Click me</button> -->
         </div>
         <!-- <div class="flex-grow border-t border-gray-400"></div>
         <div class="flex-grow border-t border-gray-400"></div> -->
