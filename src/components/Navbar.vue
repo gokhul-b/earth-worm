@@ -1,7 +1,8 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div>
     <nav
-      class="flex items-center justify-between flex-wrap bg-[#181818] p-6"
+      class="flex justify-between items-center bg-[#181818] p-6"
       v-if="isLoggedIn"
     >
       <div class="flex items-center flex-shrink-0 text-white mr-6">
@@ -21,8 +22,8 @@
           </svg>
         </button>
       </div> -->
-      <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-        <div class="text-sm lg:flex-grow">
+      <div class="lg:w-full flex lg:items-center justify-between">
+        <div class="text-sm lg:flex-grow hidden lg:flex">
           <a
             href="#responsive-header"
             class="block mt-4 lg:inline-block lg:mt-0 text-zinc-200 hover:text-white mr-4"
@@ -48,12 +49,134 @@
             >
           </a>
         </div>
-        <div>
+        <div class="hidden lg:flex">
           <a
             href="#"
             class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-zinc-900 hover:bg-white mt-4 lg:mt-0"
             ><span @click="handleSignOut" v-if="isLoggedIn">Logout</span></a
           >
+        </div>
+
+        <div class="lg:hidden text-white w-fit">
+          <!-- <Menu>
+            <MenuButton>More</MenuButton>
+            <MenuItems class="z-10 absolute bg-black p-8 rounded-xl right-2">
+              <MenuItem>
+                <MenuButton>
+                  <a
+                    href="#responsive-header"
+                    class="block mt-4 lg:inline-block lg:mt-0 text-zinc-200 hover:text-white mr-4"
+                  >
+                    <router-link
+                      to="/market"
+                      class="flex-1 ml-3 whitespace-nowrap"
+                    >
+                      Market analysis</router-link
+                    >
+                  </a>
+                </MenuButton>
+              </MenuItem>
+              <MenuItem>
+                <a
+                  href="#responsive-header"
+                  class="block mt-4 lg:inline-block lg:mt-0 text-zinc-200 hover:text-white mr-4"
+                >
+                  <router-link
+                    to="/addcrop"
+                    class="flex-1 ml-3 whitespace-nowrap"
+                  >
+                    Add your crops</router-link
+                  >
+                </a>
+              </MenuItem>
+              <MenuItem>
+                <a
+                  href="#responsive-header"
+                  class="block mt-4 lg:inline-block lg:mt-0 text-zinc-200 hover:text-white"
+                >
+                  <router-link
+                    to="/expense"
+                    class="flex-1 ml-3 whitespace-nowrap"
+                  >
+                    Expense tracking</router-link
+                  >
+                </a>
+              </MenuItem>
+              <MenuItem>
+                <a
+                  href="#"
+                  class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-zinc-900 hover:bg-white mt-4 lg:mt-0"
+                  ><span @click="handleSignOut" v-if="isLoggedIn"
+                    >Logout</span
+                  ></a
+                >
+              </MenuItem>
+            </MenuItems>
+          </Menu> -->
+          <Popover class="">
+            <PopoverButton
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                /></svg
+            ></PopoverButton>
+
+            <PopoverPanel
+              class="absolute z-10 left-0 top-0 h-full bg-black opacity-90 w-full"
+              v-slot="{ close }"
+            >
+              <div class="flex flex-col items-start p-8 rounded-xl gap-2">
+                <div class="flex justify-end w-full">
+                  <PopoverButton>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="w-6 h-6"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                  </PopoverButton>
+                </div>
+
+                <PopoverButton>
+                  <button @click="accept(close)">
+                    <router-link to="/market"> Market analysis</router-link>
+                  </button>
+                </PopoverButton>
+                <PopoverButton>
+                  <button @click="accept(close)">
+                    <router-link to="/addcrop"> Add your crops</router-link>
+                  </button>
+                </PopoverButton>
+                <PopoverButton>
+                  <button @click="accept(close)">
+                    <router-link to="/expense"> Expense tracking</router-link>
+                  </button>
+                </PopoverButton>
+                <PopoverButton
+                  ><span @click="handleSignOut" v-if="isLoggedIn"
+                    >Logout</span
+                  ></PopoverButton
+                >
+              </div>
+            </PopoverPanel>
+          </Popover>
         </div>
       </div>
     </nav>
@@ -178,7 +301,10 @@
 import { onMounted, ref } from "vue";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { useRouter } from "vue-router";
-
+import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue";
+async function accept(close) {
+  close();
+}
 const router = useRouter();
 const isLoggedIn = ref(false);
 
