@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div class="flex mb-2">
+    <div class="flex mb-2 w-full flex-wrap space-x-1">
       <div v-for="crop in choosenCrops" :key="crop">
         <div
-          class="flex px-3 items-center py-1 bg-gray-200 text-gray-800 text-sm font-regular rounded my-1 mx-1"
+          class="w-full flex flex-wrap px-3 items-center py-1 bg-gray-200 text-gray-800 text-sm font-regular rounded my-1 mx-1"
         >
           <p class="mr-1">{{ crop }}</p>
           <span class="rounded-full"
@@ -27,12 +27,12 @@
       </div>
     </div>
     <div>
-      <div class="flex flex-col">
-        <div class="flex items-center space-x-4">
+      <div class="flex flex-col mx-1">
+        <div class="flex items-center">
           <div for="label">
             <label
               for="chooseCrops"
-              class="block text-sm font-medium text-zinc-800"
+              class="block text-sm font-medium text-zinc-800 mr-2"
               >Add crops:
             </label>
           </div>
@@ -42,7 +42,7 @@
               v-model="tempCrop"
               placeholder="type and press enter"
               @keyup="addCrop"
-              class="form-control block px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+              class="mr-2 form-control block px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
             />
           </div>
           <button class="sm:hidden" @click="addCrop(e)">

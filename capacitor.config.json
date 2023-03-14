@@ -1,0 +1,6 @@
+{
+  "appId": "com.gokhul.earthworm",
+  "appName": "earth-worm",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}
