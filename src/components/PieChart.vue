@@ -2,14 +2,31 @@
   <div>
     <div class="flex mb-2">
       <div v-for="crop in choosenCrops" :key="crop">
-        <button
-          @click="deleteCrop(crop)"
-          class="px-2 py-1 bg-gray-200 hover:bg-gray-300 text-gray-800 text-sm font-regular rounded-full my-1 mx-1"
+        <div
+          class="flex px-3 items-center py-1 bg-gray-200 text-gray-800 text-sm font-regular rounded my-1 mx-1"
         >
-          {{ crop }}
-          <span class="rounded-full">x</span>
-        </button>
+          <p class="mr-1">{{ crop }}</p>
+          <span class="rounded-full"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-4 h-4 justify-end hover:bg-gray-300"
+              @click="deleteCrop(crop)"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </span>
+        </div>
       </div>
+    </div>
+    <div>
       <div class="flex flex-col">
         <div class="flex items-center space-x-4">
           <div for="label">
