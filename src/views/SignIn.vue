@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-gray-50 dark:bg-gray-50 w-[500px] mx-auto">
+  <section class="bg-gray-50 dark:bg-gray-50 w-[400px] sm:w-[500px] mx-auto">
     <div
       class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0"
     >
