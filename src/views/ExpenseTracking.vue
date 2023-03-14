@@ -1,7 +1,12 @@
 <template>
   <div class="p-4 mx-auto w-full">
+    <div class="text-2xl my-4 sm:my-10 font-medium text-center">
+      <h1>Expense Tracking</h1>
+      <!-- <button v-on:click="click()">Click me</button> -->
+    </div>
+
     <div class="flex justify-center">
-      <div class="xl:w-96 my-10">
+      <div class="mb-3 xl:w-96 mt-8 sm:mt-12">
         <form @submit.prevent="addExpense" class="space-y-4 md:space-y-6">
           <div>
             <label for="date" class="form-label inline-block mb-2 text-gray-700"
@@ -77,6 +82,7 @@ export default {
     async addExpense() {
       const auth = getAuth();
       const userId = auth.currentUser.uid;
+
       if (this.date && this.purpose && this.amount) {
         const cropRef = collection(db, "Expenses");
         const dataObj = {

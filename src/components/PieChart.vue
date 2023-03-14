@@ -10,24 +10,40 @@
           <span class="rounded-full">x</span>
         </button>
       </div>
-    </div>
-    <div class="flex flex-col">
-      <div class="flex items-center space-x-4">
-        <div for="label" class="">
-          <label
-            for="chooseCrops"
-            class="block text-sm font-medium text-zinc-800"
-            >Choose the crops:
-          </label>
-        </div>
-        <div for="input">
-          <input
-            type="text"
-            v-model="tempCrop"
-            placeholder="type and press enter"
-            @keyup="addCrop"
-            class="form-control block px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-          />
+      <div class="flex flex-col">
+        <div class="flex items-center space-x-4">
+          <div for="label">
+            <label
+              for="chooseCrops"
+              class="block text-sm font-medium text-zinc-800"
+              >Add crops:
+            </label>
+          </div>
+          <div for="input">
+            <input
+              type="text"
+              v-model="tempCrop"
+              placeholder="type and press enter"
+              @keyup="addCrop"
+              class="form-control block px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+            />
+          </div>
+          <button class="sm:hidden" @click="addCrop(e)">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6 border border-blue-700 rounded"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 4.5v15m7.5-7.5h-15"
+              />
+            </svg>
+          </button>
         </div>
       </div>
     </div>
@@ -62,18 +78,34 @@ export default {
   },
   methods: {
     addCrop(e) {
-      if (e.key === "Enter" && this.tempCrop) {
-        if (
-          !this.choosenCrops.includes(
-            this.tempCrop.charAt(0).toUpperCase() + this.tempCrop.slice(1)
-          )
-        ) {
-          this.choosenCrops.push(
-            this.tempCrop.charAt(0).toUpperCase() + this.tempCrop.slice(1)
-          );
+      if (e) {
+        if (e.key === "Enter" && this.tempCrop) {
+          if (
+            !this.choosenCrops.includes(
+              this.tempCrop.charAt(0).toUpperCase() + this.tempCrop.slice(1)
+            )
+          ) {
+            this.choosenCrops.push(
+              this.tempCrop.charAt(0).toUpperCase() + this.tempCrop.slice(1)
+            );
+          }
+          this.getCurrentMonthCrops();
+          this.tempCrop = "";
         }
-        this.getCurrentMonthCrops();
-        this.tempCrop = "";
+      } else {
+        if (this.tempCrop) {
+          if (
+            !this.choosenCrops.includes(
+              this.tempCrop.charAt(0).toUpperCase() + this.tempCrop.slice(1)
+            )
+          ) {
+            this.choosenCrops.push(
+              this.tempCrop.charAt(0).toUpperCase() + this.tempCrop.slice(1)
+            );
+          }
+          this.getCurrentMonthCrops();
+          this.tempCrop = "";
+        }
       }
     },
     deleteCrop(crop) {

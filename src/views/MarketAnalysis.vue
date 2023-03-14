@@ -10,18 +10,18 @@
         <div class="flex-grow border-t border-gray-400"></div> -->
       </div>
     </div>
-    <div id="currentMonth " class="w-8/12 h-full">
+    <div id="currentMonth " class="sm:w-8/12 h-full">
       <PieChart />
     </div>
-    <div class="sm:flex sm:flex-col w-8/12 h-full my-24">
+    <div class="w-full sm:w-8/12 h-full my-24">
       <div>
         <div class="flex flex-col">
-          <div class="flex items-center space-x-4">
+          <div class="flex items-center space-x-4 mx-auto">
             <div for="label">
               <label
                 for="selectacrop"
                 class="block text-sm font-medium text-zinc-800"
-                >Select a Crop:</label
+                >Select Crop:</label
               >
             </div>
             <div for="select">
@@ -41,7 +41,7 @@
           </div>
         </div>
       </div>
-      <div class="mb-16">
+      <div class="mb-16 mx-1">
         <div
           for="columchart"
           class="shadow-lg rounded-lg overflow-hidden mt-10 h-full"
@@ -53,7 +53,7 @@
           </div>
           <div class="flex items-center w-full h-full mt-10 mb-12">
             <column-chart
-              class="px-8"
+              class="px-2 sm:px-8"
               :data="chartData"
               xtitle="Months"
               ytitle="Acres"

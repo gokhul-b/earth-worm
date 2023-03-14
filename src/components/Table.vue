@@ -27,7 +27,7 @@
                   </th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody v-if="total">
                 <tr
                   v-for="data in tableData"
                   :key="data.id"
@@ -49,6 +49,17 @@
                     {{ data.amount }}
                   </td>
                 </tr>
+                <td></td>
+                <td
+                  class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                >
+                  Total:
+                </td>
+                <td
+                  class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                >
+                  {{ total }}
+                </td>
               </tbody>
             </table>
           </div>
@@ -67,6 +78,7 @@ export default {
   data() {
     return {
       tableData: [],
+      total: 0,
     };
   },
   mounted() {
@@ -81,7 +93,14 @@ export default {
       querySnap.forEach((doc) => {
         this.tableData.push(doc.data());
       });
+      // this.getableData.push(this.tableData);
       console.log(this.tableData);
+      let totalAmount = 0;
+      for (let i = 0; i < this.tableData.length; i++) {
+        totalAmount += this.tableData[i].amount;
+      }
+      this.total = totalAmount;
+      console.log(this.total);
     },
   },
 };

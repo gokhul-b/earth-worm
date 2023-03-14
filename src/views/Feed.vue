@@ -10,9 +10,7 @@
       <p>
         We're glad to see you again. Check out the latest updates from other
         farmers and share your own crop planting activities. Let's work together
-        to revolutionize the agriculture industry." You can replace [user name]
-        with the actual name of the user who is logged in to personalize the
-        message.
+        to revolutionize the agriculture industry."
       </p>
     </div>
     <div id="instructions" class="py-10">
@@ -35,10 +33,10 @@
           <span class="text-1xl text-zinc-900 font-medium"
             >2.Selecting a Crop:
           </span>
-          From your Dashboard, click on the "Add Crop" tab to add a new crop to
-          your field. Here, you can select the type of crop you want to plant,
-          the month in which you want to sow it, and the number of acres you
-          plan to sow. Click "Save" to add the crop to your profile.
+          From your Dashboard, click on the "Add Your Crop" tab to add a new
+          crop to your field. Here, you can select the type of crop you want to
+          plant, the month in which you want to sow it, and the number of acres
+          you plan to sow. Click "Save" to add the crop to your profile.
         </p>
       </div>
       <div class="py-2">
@@ -56,7 +54,7 @@
       <div class="py-2">
         <p class="text-zinc-600">
           <span class="text-1xl text-zinc-900 font-medium">4.Logout: </span>
-          To log out of your account, click on the logout button in the sidebar.
+          To log out of your account, click on the logout button in the navbar.
         </p>
       </div>
     </div>

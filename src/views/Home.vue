@@ -1,6 +1,20 @@
+// eslint-disable-next-line vue/multi-word-component-names
 <template>
   <div class="w-full">
-    <nav
+    <nav class="flex justify-between items-center dark:bg-zinc-800 p-6">
+      <div
+        class="font-semibold text-xl tracking-tight flex items-center flex-shrink-0 text-white mr-6"
+      >
+        Earthworm
+      </div>
+      <button
+        type="button"
+        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-1.5 sm:px-5 sm:py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      >
+        <router-link to="/sign-in"> Login </router-link>
+      </button>
+    </nav>
+    <!-- <nav
       class="bg-gray-50 px-2 sm:px-4 py-2.5 dark:bg-zinc-50 w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-zinc-300"
     >
       <div class="container flex items-center justify-between mx-auto">
@@ -30,7 +44,7 @@
           </button>
         </div>
       </div>
-    </nav>
+    </nav> -->
     <section class="bg-white dark:bg-zinc-800 mt-4">
       <div class="grid max-w-screen-xl mt-4 px-4 py-8 mx-auto lg:py-16">
         <div class="mr-auto place-self-center lg:col-span-7">

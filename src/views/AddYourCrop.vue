@@ -1,7 +1,11 @@
 <template>
   <div class="p-4 mx-auto w-full">
+    <div class="text-2xl my-4 sm:my-10 font-medium text-center">
+      <h1>Add Your Crop</h1>
+      <!-- <button v-on:click="click()">Click me</button> -->
+    </div>
     <div class="flex justify-center">
-      <div class="mb-3 xl:w-96 mt-20">
+      <div class="mb-3 xl:w-96 mt-8 sm:mt-12">
         <form @submit.prevent="addCrop" class="space-y-4 md:space-y-6">
           <div>
             <label for="crop" class="form-label inline-block mb-2 text-gray-700"
